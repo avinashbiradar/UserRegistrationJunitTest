@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestUserValidator" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-12-22T14:55:23" hostname="DESKTOP-PB86ROL" time="0.015">
+<testsuite name="TestUserValidator" tests="12" skipped="0" failures="0" errors="0" timestamp="2020-12-22T15:01:38" hostname="DESKTOP-PB86ROL" time="0.014">
   <properties/>
   <testcase name="givenLastName_WhenLastNameStartsWithCapitalLetter_ShouldReturn_True" classname="TestUserValidator" time="0.005"/>
-  <testcase name="givenFirstName_ShouldReturn_False" classname="TestUserValidator" time="0.002"/>
-  <testcase name="givenFirstName_ShouldReturn_True" classname="TestUserValidator" time="0.001"/>
+  <testcase name="givenEmail_WhenEmailEndsWithComOrIn_ShouldReturn_True" classname="TestUserValidator" time="0.0"/>
+  <testcase name="givenFirstName_ShouldReturn_False" classname="TestUserValidator" time="0.0"/>
+  <testcase name="givenFirstName_ShouldReturn_True" classname="TestUserValidator" time="0.0"/>
+  <testcase name="givenEmail_WhenEmailNotStartsWithSmallLetter_ShouldReturn_False" classname="TestUserValidator" time="0.001"/>
+  <testcase name="givenEmail_WhenEmailStartsWithSmallLetter_ShouldReturn_True" classname="TestUserValidator" time="0.0"/>
+  <testcase name="givenEmail_WhenEmailNotEndsWithComOrIn_ShouldReturn_False" classname="TestUserValidator" time="0.0"/>
   <testcase name="givenFirstName_NotHaveMinimumThreeLetters_ShouldReturn_False" classname="TestUserValidator" time="0.0"/>
-  <testcase name="givenLastName_WhenLastNameNotHaveMinimumThreeLetter_ShouldReturn_False" classname="TestUserValidator" time="0.0"/>
-  <testcase name="givenLastName_WhenLastNameNotStartsWithCapitalLetter_ShouldReturn_False" classname="TestUserValidator" time="0.0"/>
+  <testcase name="givenLastName_WhenLastNameNotHaveMinimumThreeLetter_ShouldReturn_False" classname="TestUserValidator" time="0.001"/>
+  <testcase name="givenLastName_WhenLastNameNotStartsWithCapitalLetter_ShouldReturn_False" classname="TestUserValidator" time="0.001"/>
   <testcase name="givenLastName_WhenLastNameHaveMinimumThreeLetter_ShouldReturn_True" classname="TestUserValidator" time="0.0"/>
   <testcase name="givenFirstName_MinimumThreeLetters_ShouldReturn_True" classname="TestUserValidator" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
