@@ -65,7 +65,7 @@ public class TestUserValidator {
     @Test
     public void givenEmail_WhenEmailStartsWithSmallLetter_ShouldReturn_True() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validateEmail("adhauparag64@gmail.com");
+        boolean result = userValidator.validateEmail("avinashbiradar64@gmail.com");
         Assert.assertEquals(true, result);
     }
 
@@ -115,6 +115,62 @@ public class TestUserValidator {
     public void givenPhoneNumber_WhenPhoneNumberIsNotTenDigit_ShouldReturn_False() {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validatePhone("91 8105215");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenPassword_WhenPasswordIsMinimumEightDigit_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("Avinash234$");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPassword_WhenPasswordIsNotMinimumEightDigit_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("avin");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenPassword_WhenPasswordHaveAtleastOneCapitalLetter_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("Avinash123@");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPassword_WhenPasswordNotHaveAtleastOneCapitalLetter_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("avinash@");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenPassword_WhenPasswordHaveAtleastOneNumericNumber_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("Avinashbiradar2$");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPassword_WhenPasswordNotHaveAtleastOneNumericNumber_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("adased@");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenPassword_WhenPasswordHaveAtleastOneSpeacialCharacter_ShouldReturn_True() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("Avinash234$");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPassword_WhenPasswordNotHaveAtleastOneSpeacialCharacter_ShouldReturn_False() {
+        UserValidator userValidator = new UserValidator();
+        boolean result = userValidator.validatePassword("avinash123");
         Assert.assertEquals(false, result);
     }
 }
