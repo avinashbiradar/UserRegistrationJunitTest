@@ -3,6 +3,7 @@ import java.util.regex.Pattern;
 public class  UserValidator {
         private final String NAME_PATTERN = "^[A-Z]{1}[a-z]{2,}$";
         private final String EMAIL_PATTERN = "^[a-z]+[A-Z0-9.+_-]+[@][a-zA-Z0-9]+[.]co(m|.in)$";
+        private final String PHONE_PATTERN = "^[1-9][0-9]+[ ]{0,1}+[1-9][0-9]{9}$";
 
         public boolean validateFirstName(String firstName) {
             Pattern pattern = Pattern.compile(NAME_PATTERN);
@@ -16,4 +17,9 @@ public class  UserValidator {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         return pattern.matcher(email).matches();
             }
+         public boolean validatePhone(String phone) {
+        Pattern pattern = Pattern.compile(PHONE_PATTERN);
+        return pattern.matcher(phone).matches();
+            }
+
 }
