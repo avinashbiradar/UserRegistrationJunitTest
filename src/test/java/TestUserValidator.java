@@ -1,7 +1,13 @@
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class TestUserValidator {
     //use case 1 test cases for first name
@@ -12,6 +18,7 @@ public class TestUserValidator {
         boolean result = userValidator.validateFirstName("Avinash");
         Assert.assertEquals(true, result);
     }
+
     @Test
     //when a name starts with a small letter
     public void givenFirstName_ShouldReturn_False() {
@@ -19,6 +26,7 @@ public class TestUserValidator {
         boolean result = userValidator.validateFirstName("avinash");
         Assert.assertEquals(false, result);
     }
+
     //when a name has 3 or more letters
     @Test
     public void givenFirstName_MinimumThreeLetters_ShouldReturn_True() {
@@ -26,6 +34,7 @@ public class TestUserValidator {
         boolean result = userValidator.validateFirstName("Avi");
         Assert.assertEquals(true, result);
     }
+
     @Test
     //when a name does not contain 3 minimum letters
     public void givenFirstName_NotHaveMinimumThreeLetters_ShouldReturn_False() {
@@ -70,9 +79,9 @@ public class TestUserValidator {
     }
 
     @Test
-    public void givenEmail_WhenEmailNotStartsWithSmallLetter_ShouldReturn_False() {
+    public void getEmail_whenThreeDomain_shouldReturnFalse() {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validateEmail("Abc@gmail.com");
+        boolean result = userValidator.validateEmail("Avinash@gmail.co.in.com");
         Assert.assertEquals(false, result);
     }
 
@@ -84,10 +93,11 @@ public class TestUserValidator {
     }
 
     @Test
-    public void givenEmail_WhenEmailNotEndsWithComOrIn_ShouldReturn_False() {
+    public void getEmail_whenEmailValid_shouldReturnTrue()
+    {
         UserValidator userValidator = new UserValidator();
-        boolean result = userValidator.validateEmail("Abc@gmail.kjnk");
-        Assert.assertEquals(false, result);
+        boolean result = userValidator.validateEmail("Avinash@gmail.com");
+        Assert.assertEquals(true, result);
     }
 
     @Test
@@ -172,5 +182,35 @@ public class TestUserValidator {
         UserValidator userValidator = new UserValidator();
         boolean result = userValidator.validatePassword("avinash123");
         Assert.assertEquals(false, result);
+    }
+
+    //UseCase11-Parameterised Test to validate multiple entry for the Email Address.
+    @RunWith(Parameterized.class)
+    public static class TestFormRegistration
+    {
+        String emailId;
+        boolean expectedResult;
+        private UserValidator emailVariable;
+        UserValidator formObject = new UserValidator();
+        public TestFormRegistration(String emailId, boolean expectedResult)
+        {
+            this.emailId = emailId;
+            this.expectedResult = expectedResult;
+        }
+        @Before
+        public void initialize()
+        {
+            emailVariable = new UserValidator();
+        }
+        @Parameterized.Parameters
+        public static List<Object[]> emails()
+        {
+            return Arrays.asList(new Object[][] { {"Avinash@gmail.com", true}, {"Avinash@gmail.co.in",true}, {"avinashgmail.com", false}});
+        }
+        @Test
+        public void testEmailId() {
+                System.out.println("parameter email is->" + emailId);
+                Assert.assertEquals(expectedResult, emailVariable.multipleEmailvalidate(emailId));
+        }
     }
 }
