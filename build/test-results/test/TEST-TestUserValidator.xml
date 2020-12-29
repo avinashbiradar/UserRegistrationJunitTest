@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestUserValidator" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-25T17:06:17" hostname="DESKTOP-PB86ROL" time="0.007">
+<testsuite name="TestUserValidator" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-27T11:34:37" hostname="DESKTOP-PB86ROL" time="0.011">
   <properties/>
-  <testcase name="givenPassword_WhenPasswordHaveAtleastOneCapitalLetter_ShouldReturn_True" classname="TestUserValidator" time="0.007"/>
+  <testcase name="givenPassword_WhenPasswordHaveAtleastOneCapitalLetter_ShouldReturn_True" classname="TestUserValidator" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
